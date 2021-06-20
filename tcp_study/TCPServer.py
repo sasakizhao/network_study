@@ -11,7 +11,6 @@ while True:
     connectSock, clientAddr = serverSocket.accept()
     message = connectSock.recv(1024).decode()
     print('receive msg:', message, 'from:', clientAddr)
-    if message == '.exit':
-        connectSock.close()
     modifiedMsg = message.upper()
     connectSock.send(modifiedMsg.encode())
+    connectSock.close()
